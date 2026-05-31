@@ -130,12 +130,18 @@ async def get_thumb(videoid, user_id, user_name):
         draw.text((650, 460), f"Views: {views}", fill=(190, 190, 190), font=f2)
         draw.text((650, 520), f"Duration: {duration}", fill=(190, 190, 190), font=f2)
 
-        # --- RAINBOW NEON AUDIO WAVE ---
+        # --- NEON AUDIO WAVE (Red to Yellow, Thinner lines) ---
         center_y = 750
         num_bars = 90
-        bar_width = 6   
+        bar_width = 3    # Thinner bars
         spacing = 15
         start_x = 350
+        
+        # Specific bar indexes for placing musical notes
+        top_note_indices = [15, 45, 75]
+        bottom_note_indices = [30, 60, 85]
+        notes = ['♪', '♫', '♬']
+        note_colors = [(255, 80, 80), (255, 255, 80), (80, 255, 255), (255, 100, 255)]
         
         for i in range(num_bars):
             h = random.randint(40, 80) if i % 5 == 0 else random.randint(10, 45)
@@ -143,19 +149,42 @@ async def get_thumb(videoid, user_id, user_name):
             x2 = x1 + bar_width
             if x2 > 1800: break
                 
-            hue = 0.60 + (i / num_bars) * 0.75
-            if hue > 1.0: hue -= 1.0
+            # Gradient from Red (0.0) to Yellow (0.16)
+            hue = 0.0 + (i / num_bars) * 0.16
             r, g, b = [int(c * 255) for c in colorsys.hsv_to_rgb(hue, 1.0, 1.0)]
             
-            draw.rounded_rectangle((x1 - 8, center_y - h - 8, x2 + 8, center_y + h + 8), radius=8, fill=(r, g, b, 15))
-            draw.rounded_rectangle((x1 - 4, center_y - h - 4, x2 + 4, center_y + h + 4), radius=6, fill=(r, g, b, 45))
-            draw.rounded_rectangle((x1 - 1, center_y - h - 1, x2 + 1, center_y + h + 1), radius=4, fill=(r, g, b, 120))
-            draw.rounded_rectangle((x1 + 2, center_y - h, x2 - 2, center_y + h), radius=2, fill=(255, 255, 255, 255))
+            # Draw thinner, sharper glowing bars
+            draw.rounded_rectangle((x1 - 6, center_y - h - 6, x2 + 6, center_y + h + 6), radius=6, fill=(r, g, b, 15))
+            draw.rounded_rectangle((x1 - 3, center_y - h - 3, x2 + 3, center_y + h + 3), radius=4, fill=(r, g, b, 45))
+            draw.rounded_rectangle((x1 - 1, center_y - h - 1, x2 + 1, center_y + h + 1), radius=2, fill=(r, g, b, 120))
+            draw.rounded_rectangle((x1, center_y - h, x2, center_y + h), radius=1, fill=(255, 255, 255, 255))
 
-        # Play Button icon
+            # Add glowing musical notes on specific top positions
+            if i in top_note_indices:
+                nc = random.choice(note_colors)
+                draw_text_with_glow(draw, (x1 - 10, center_y - h - 50), random.choice(notes), f2, nc, (nc[0], nc[1], nc[2], 120))
+            
+            # Add glowing musical notes on specific bottom positions
+            if i in bottom_note_indices:
+                nc = random.choice(note_colors)
+                draw_text_with_glow(draw, (x1 - 10, center_y + h + 10), random.choice(notes), f2, nc, (nc[0], nc[1], nc[2], 120))
+
+        # --- BUTTON CONTROLS (Backward, Play/Pause, Forward) ---
+        
+        # 1. Backward Button (Left)
+        draw.ellipse((860, 840, 900, 880), outline="white", width=3)
+        draw.polygon([(885, 848), (885, 872), (870, 860)], fill="white") # Left Triangle
+        draw.rectangle((865, 848, 868, 872), fill="white") # Vertical Bar
+        
+        # 2. Play/Pause Button icon (Center)
         draw.ellipse((930, 830, 990, 890), outline="white", width=4)
         draw.rectangle((950, 845, 960, 875), fill="white")
         draw.rectangle((965, 845, 975, 875), fill="white")
+
+        # 3. Forward Button (Right)
+        draw.ellipse((1020, 840, 1060, 880), outline="white", width=3)
+        draw.polygon([(1035, 848), (1035, 872), (1050, 860)], fill="white") # Right Triangle
+        draw.rectangle((1052, 848, 1055, 872), fill="white") # Vertical Bar
 
         # Footer Texts
         draw_text_with_glow(draw, (80, 975), "BETA BOT HUB", br, (132, 224, 240), (0, 255, 255, 100))
