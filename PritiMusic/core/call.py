@@ -404,11 +404,13 @@ class Call(PyTgCalls):
                         from youtubesearchpython.__future__ import VideosSearch
                         import random
                         
-                        # Pichle gaane ka title uthao
-                        last_title = popped.get("title", "New trending songs")
+                        # ✅ FIX 1: Safe Title Extraction to avoid NoneType Error
+                        raw_title = popped.get("title")
+                        last_title = str(raw_title) if raw_title else "New trending songs"
                         
-                        # YouTube par usse milte-julte 15 gaane search karo
-                        search = VideosSearch(last_title, limit=15)
+                        # ✅ FIX 2: Force YouTube search to find only audio/songs
+                        search_query = f"{last_title} official audio"
+                        search = VideosSearch(search_query, limit=15)
                         result = await search.next()
                         
                         if result and "result" in result:
@@ -428,7 +430,8 @@ class Call(PyTgCalls):
                                     "by": "Autoplay 🟢",
                                     "chat_id": chat_id,
                                     "file": f"vid_{next_vidid}",
-                                    "streamtype": popped.get("streamtype", "audio"), 
+                                    # ✅ FIX 3: Always force streamtype to "audio" for autoplay
+                                    "streamtype": "audio", 
                                     "user_id": app.id if app else 0,
                                     "seconds": 0, 
                                     "dur": next_track.get("duration", "Unknown"),
