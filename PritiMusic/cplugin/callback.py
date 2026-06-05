@@ -210,6 +210,9 @@ async def del_back_playlist(client, CallbackQuery, _):
         return await CallbackQuery.answer(_["general_5"], show_alert=True)
     
     mention = CallbackQuery.from_user.mention
+    # 🚀 Yahan humne user details nikal li hain thumbnail generator ke liye
+    user_id = CallbackQuery.from_user.id
+    user_name = CallbackQuery.from_user.first_name
     
     if command == "UpVote":
         if chat_id not in votemode:
@@ -488,7 +491,8 @@ async def del_back_playlist(client, CallbackQuery, _):
                 return await CallbackQuery.message.reply_text(_["call_6"])
             
             button = stream_markup2(_, chat_id)
-            img = await get_thumb(videoid)
+            # 🚀 get_thumb fix applied here
+            img = await get_thumb(videoid, user_id, user_name)
             if not img: img = get_random_img(PLAYLIST_IMG_URL)
 
             run = await CallbackQuery.message.reply_photo(
@@ -526,7 +530,8 @@ async def del_back_playlist(client, CallbackQuery, _):
                 return await mystic.edit_text(_["call_6"])
             
             button = stream_markup(_, chat_id)
-            img = await get_thumb(videoid)
+            # 🚀 get_thumb fix applied here
+            img = await get_thumb(videoid, user_id, user_name)
             if not img: img = get_random_img(PLAYLIST_IMG_URL)
 
             run = await CallbackQuery.message.reply_photo(
@@ -605,7 +610,8 @@ async def del_back_playlist(client, CallbackQuery, _):
                 
             else:
                 button = stream_markup(_, chat_id)
-                img = await get_thumb(videoid)
+                # 🚀 get_thumb fix applied here
+                img = await get_thumb(videoid, user_id, user_name)
                 if not img: img = get_random_img(PLAYLIST_IMG_URL)
 
                 run = await CallbackQuery.message.reply_photo(
@@ -636,10 +642,16 @@ async def del_back_playlist(client, CallbackQuery, _):
             return await CallbackQuery.answer(_["admin_22"], show_alert=True)
         
         duration_played = int(playing[0]["played"])
-        duration_to_skip = 10 if int(command) in [1, 2] else 30
+        
+        # 🚀 ValueError "SeekForward" fix applied here
+        try:
+            duration_to_skip = 10 if int(command) in [1, 2] else 30
+        except ValueError:
+            duration_to_skip = 10
+            
         duration = playing[0]["dur"]
         
-        if int(command) in [1, 3]:
+        if command in [1, 3] or command in ["SeekBackward", "1", "3"]: # Enhanced to support string commands
             if (duration_played - duration_to_skip) <= 10:
                 bet = seconds_to_min(duration_played)
                 return await CallbackQuery.answer(
@@ -673,7 +685,7 @@ async def del_back_playlist(client, CallbackQuery, _):
         except:
             return await mystic.edit_text(_["admin_26"])
             
-        if int(command) in [1, 3]:
+        if command in [1, 3] or command in ["SeekBackward", "1", "3"]:
             db[chat_id][0]["played"] -= duration_to_skip
         else:
             db[chat_id][0]["played"] += duration_to_skip
