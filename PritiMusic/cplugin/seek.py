@@ -29,12 +29,15 @@ async def seek_comm(cli, message: Message, _, chat_id):
     if not playing:
         return await message.reply_text(_["queue_2"])
     
-    duration_seconds = int(playing[0]["seconds"])
+    # 🚀 Fix: KeyError se bachne ke liye safe get() use kiya
+    duration_seconds = int(playing[0].get("seconds", 0))
     if duration_seconds == 0:
         return await message.reply_text(_["admin_22"])
     
     file_path = playing[0]["file"]
-    duration_played = int(playing[0]["played"])
+    
+    # 🚀 Fix: KeyError ('played') se bachne ke liye safe get() use kiya
+    duration_played = int(playing[0].get("played", 0))
     duration_to_skip = int(query)
     duration = playing[0]["dur"]
     
@@ -79,10 +82,11 @@ async def seek_comm(cli, message: Message, _, chat_id):
     except:
         return await mystic.edit_text(_["admin_26"], reply_markup=close_markup(_))
         
+    # 🚀 Fix: Safe assignment bina KeyError trigger kiye
     if message.command[0][-2] == "c":
-        db[chat_id][0]["played"] -= duration_to_skip
+        db[chat_id][0]["played"] = duration_played - duration_to_skip
     else:
-        db[chat_id][0]["played"] += duration_to_skip
+        db[chat_id][0]["played"] = duration_played + duration_to_skip
         
     await mystic.edit_text(
         text=_["admin_25"].format(seconds_to_min(to_seek), message.from_user.mention),
