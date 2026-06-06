@@ -69,7 +69,15 @@ def make_start_panel(bot_username, owner_url,
 
     # --- Custom Button Logic ---
     if custom_btn and custom_btn.get("text"):
-        c_btn = styled_button(text=custom_btn["text"], url=custom_btn["url"], style=ButtonStyle.PRIMARY)
+        btn_url = custom_btn.get("url", "").strip()
+        
+        # Agar URL mein http ya tg format nahi hai, toh https laga do
+        if btn_url and not btn_url.startswith(("http://", "https://", "tg://")):
+            btn_url = f"https://{btn_url}"
+        elif not btn_url:
+            btn_url = "https://t.me/Telegram"
+            
+        c_btn = styled_button(text=custom_btn["text"], url=btn_url, style=ButtonStyle.PRIMARY)
         
         if btn_pos in ["UP", "TOP"]:
             buttons.insert(0, [c_btn])
@@ -176,9 +184,12 @@ def get_random_start_image():
     return "https://telegra.ph/file/2e3d368e77c449c287430.jpg"
 
 def format_link(val):
-    if not val:
+    if not val or str(val).strip() in ["", "none", "None"]:
         return "https://t.me/Telegram" 
-    if "https://" in val or "http://" in val:
+    val = str(val).strip()
+    if val.startswith("@"):
+        val = val[1:] # Agar kisi ne @ lagaya hai toh use hata dega
+    if val.startswith(("https://", "http://", "tg://")):
         return val
     return f"https://t.me/{val}"
 
@@ -269,7 +280,7 @@ async def start_pm(client, message: Message, _):
 
     C_SUPPORT_CHAT = format_link(raw_support)
     C_SUPPORT_CHANNEL = format_link(raw_channel)
-    OWNER_URL = f"tg://openmessage?user_id={C_BOT_OWNER_ID}"
+    OWNER_URL = f"tg://openmessage?user_id={C_BOT_OWNER_ID}" if C_BOT_OWNER_ID else "https://t.me/Telegram"
 
     # ✅ 1. RANDOM REACTION LOGIC (Custom or Default)
     if raw_reaction:
@@ -467,7 +478,7 @@ async def home_back_handler(client, CallbackQuery, _):
 
     C_SUPPORT_CHAT = format_link(raw_support)
     C_SUPPORT_CHANNEL = format_link(raw_channel)
-    OWNER_URL = f"tg://openmessage?user_id={C_BOT_OWNER_ID}"
+    OWNER_URL = f"tg://openmessage?user_id={C_BOT_OWNER_ID}" if C_BOT_OWNER_ID else "https://t.me/Telegram"
 
     custom_button_data = None
     if raw_custom_btn:
