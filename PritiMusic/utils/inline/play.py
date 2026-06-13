@@ -14,16 +14,16 @@ from button import styled_button, ButtonStyle
 # Helper for the Clone button
 def clone_button():
     return styled_button(
-        text="『 ✦ 𝐂ʟᴏηє 𝐌є ✦ 』", 
-        url="https://t.me/SizzuMusicBot",
+        text="✦ 𝐂ʟᴏηє 𝐌є ✦", 
+        url="https://t.me/Oramusicbot",
         style=ButtonStyle.SUCCESS
     )
 
 # Helper for the Add Me button
 def add_me_button():
     return styled_button(
-        text="『 ♡ 𝐀ᴅᴅ 𝐌є 𝐁ᴀʙʏ ♡ 』",
-        url="https://t.me/SizzuMusicBot?startgroup=true",
+        text="𝐀ᴅᴅ 𝐌є 𝐁ᴀʙʏ",
+        url="https://t.me/Oramusicbot?startgroup=true",
         style=ButtonStyle.SUCCESS
     )
 
@@ -100,9 +100,9 @@ def stream_markup_timer(_, chat_id, played, dur):
 def stream_markup(_, chat_id):
     buttons = [
         [
-            styled_button(text="▷", callback_data=f"ADMIN Resume|{chat_id}", style=ButtonStyle.SUCCESS),
-            styled_button(text="II", callback_data=f"ADMIN Pause|{chat_id}", style=ButtonStyle.DANGER),
-            styled_button(text="‣‣I", callback_data=f"ADMIN Skip|{chat_id}", style=ButtonStyle.PRIMARY),
+            styled_button(text="𝐏𝐚𝐮𝐬𝐞", callback_data=f"ADMIN Pause|{chat_id}", style=ButtonStyle.DANGER),
+            styled_button(text="𝐑𝐞𝐬𝐮𝐦𝐞", callback_data=f"ADMIN Resume|{chat_id}", style=ButtonStyle.SUCCESS),
+            styled_button(text="𝐒𝐤𝐢𝐩", callback_data=f"ADMIN Skip|{chat_id}", style=ButtonStyle.PRIMARY),
         ],
         [
             styled_button(text="❖ 𝐀ᴜᴛᴏ𝐏ʟᴀʏ ❖", callback_data=f"ADMIN Autoplay|{chat_id}", style=ButtonStyle.PRIMARY)
@@ -274,9 +274,9 @@ def stream_markup2(_, chat_id):
             ),
         ],
         [
-            styled_button(text="▷", callback_data=f"ADMIN Resume|{chat_id}", style=ButtonStyle.SUCCESS),
-            styled_button(text="II", callback_data=f"ADMIN Pause|{chat_id}", style=ButtonStyle.DANGER),
-            styled_button(text="‣‣I", callback_data=f"ADMIN Skip|{chat_id}", style=ButtonStyle.PRIMARY),
+            styled_button(text="𝐏𝐚𝐮𝐬𝐞", callback_data=f"ADMIN Pause|{chat_id}", style=ButtonStyle.DANGER),
+            styled_button(text="𝐑𝐞𝐬𝐮𝐦𝐞", callback_data=f"ADMIN Resume|{chat_id}", style=ButtonStyle.SUCCESS),
+            styled_button(text="𝐒𝐤𝐢𝐩", callback_data=f"ADMIN Skip|{chat_id}", style=ButtonStyle.PRIMARY),
         ],
         [
             styled_button(text="❖ 𝐀ᴜᴛᴏ𝐏ʟᴀʏ ❖", callback_data=f"ADMIN Autoplay|{chat_id}", style=ButtonStyle.PRIMARY)
@@ -307,9 +307,9 @@ def stream_markup_timer2(_, chat_id, played, dur):
             )
         ],
         [
-            styled_button(text="▷", callback_data=f"ADMIN Resume|{chat_id}", style=ButtonStyle.SUCCESS),
-            styled_button(text="II", callback_data=f"ADMIN Pause|{chat_id}", style=ButtonStyle.DANGER),
-            styled_button(text="‣‣I", callback_data=f"ADMIN Skip|{chat_id}", style=ButtonStyle.PRIMARY),
+            styled_button(text="𝐏𝐚𝐮𝐬𝐞", callback_data=f"ADMIN Pause|{chat_id}", style=ButtonStyle.DANGER),
+            styled_button(text="𝐑𝐞𝐬𝐮𝐦𝐞", callback_data=f"ADMIN Resume|{chat_id}", style=ButtonStyle.SUCCESS),
+            styled_button(text="𝐒𝐤𝐢𝐩", callback_data=f"ADMIN Skip|{chat_id}", style=ButtonStyle.PRIMARY),
         ],
         [
             styled_button(text="❖ 𝐀ᴜᴛᴏ𝐏ʟᴀʏ ❖", callback_data=f"ADMIN Autoplay|{chat_id}", style=ButtonStyle.PRIMARY)
@@ -430,9 +430,9 @@ def panel_markup_5(_, videoid, chat_id):
             ),
         ],
         [
-            styled_button(text="ᴘᴀᴜsᴇ", callback_data=f"ADMIN Pause|{chat_id}", style=ButtonStyle.DANGER),
-            styled_button(text="sᴛᴏᴘ", callback_data=f"ADMIN Stop|{chat_id}", style=ButtonStyle.DANGER),
-            styled_button(text="sᴋɪᴘ", callback_data=f"ADMIN Skip|{chat_id}", style=ButtonStyle.PRIMARY),
+            styled_button(text="𝐏𝐚𝐮𝐬𝐞", callback_data=f"ADMIN Pause|{chat_id}", style=ButtonStyle.DANGER),
+            styled_button(text="𝐑𝐞𝐬𝐮𝐦𝐞", callback_data=f"ADMIN Resume|{chat_id}", style=ButtonStyle.SUCCESS),
+            styled_button(text="𝐒𝐤𝐢𝐩", callback_data=f"ADMIN Skip|{chat_id}", style=ButtonStyle.PRIMARY),
         ],
         [
             styled_button(
@@ -568,9 +568,9 @@ def panel_markup_clone(_, vidid, chat_id, played, dur):
             )
         ],
         [
-            styled_button(text="▷", callback_data=f"ADMIN Resume|{chat_id}", style=ButtonStyle.SUCCESS),
-            styled_button(text="II", callback_data=f"ADMIN Pause|{chat_id}", style=ButtonStyle.DANGER),
-            styled_button(text="‣‣I", callback_data=f"ADMIN Skip|{chat_id}", style=ButtonStyle.PRIMARY),
+            styled_button(text="𝐏𝐚𝐮𝐬𝐞", callback_data=f"ADMIN Pause|{chat_id}", style=ButtonStyle.DANGER),
+            styled_button(text="𝐑𝐞𝐬𝐮𝐦𝐞", callback_data=f"ADMIN Resume|{chat_id}", style=ButtonStyle.SUCCESS),
+            styled_button(text="𝐒𝐤𝐢𝐩", callback_data=f"ADMIN Skip|{chat_id}", style=ButtonStyle.PRIMARY),
         ],
         [
             InlineKeyboardButton(text="<- 20s", callback_data=f"ADMIN SeekBack|{chat_id}"),
