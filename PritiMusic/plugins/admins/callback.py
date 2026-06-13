@@ -69,7 +69,7 @@ async def clone_page_cb(client, CallbackQuery, _):
     )
     await CallbackQuery.edit_message_media(
         media=InputMediaPhoto(
-            media="https://files.catbox.moe/10zwqs.jpg", 
+            media="https://files.catbox.moe/wn3ool.jpg", 
             caption=clone_text
         ),
         reply_markup=InlineKeyboardMarkup(
@@ -85,15 +85,15 @@ async def clone_page_cb(client, CallbackQuery, _):
 async def support_page_cb(client, CallbackQuery, _):
     await CallbackQuery.answer()
     support_text = (
-        "**✨ ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ᴛʜᴇ sᴜᴘᴘᴏʀᴛ ᴍᴇɴᴜ ✨**\n\n"
+        "**✨ ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ᴊᴀɴɪ ʙᴏᴛꜱ ᴛʜᴇ sᴜᴘᴘᴏʀᴛ ᴍᴇɴᴜ ✨**\n\n"
         "ɪғ ʏᴏᴜ ɴᴇᴇᴅ ᴀɴʏ ʜᴇʟᴘ ʀᴇɢᴀʀᴅɪɴɢ ᴛʜᴇ ʙᴏᴛ ᴏʀ ᴡᴀɴᴛ ᴛᴏ ʀᴇᴘᴏʀᴛ ᴀ ʙᴜɢ, "
         "ᴊᴏɪɴ ᴏᴜʀ sᴜᴘᴘᴏʀᴛ ᴄʜᴀᴛ ᴏʀ ᴄʜᴀɴɴᴇʟ ʙᴇʟᴏᴡ."
     )
     
     custom_support_buttons = [
         [
-            InlineKeyboardButton(text="📢 ᴜᴘᴅᴀᴛᴇs", url="https://t.me/betabot_hub"),
-            InlineKeyboardButton(text="💬 sᴜᴘᴘᴏʀᴛ", url="https://t.me/betabot_support")
+            InlineKeyboardButton(text="📢 ᴜᴘᴅᴀᴛᴇs", url="https://t.me/Jani_Ki_Jaanu"),
+            InlineKeyboardButton(text="💬 sᴜᴘᴘᴏʀᴛ", url="https://t.me/+xnUCDYVIAONlMzNl")
         ],
         [
             InlineKeyboardButton(text="⌯ ʙᴀᴄᴋ ⌯", callback_data="settingsback_helper")
@@ -102,7 +102,7 @@ async def support_page_cb(client, CallbackQuery, _):
 
     await CallbackQuery.edit_message_media(
         media=InputMediaPhoto(
-            media="https://files.catbox.moe/10zwqs.jpg", 
+            media="https://files.catbox.moe/wn3ool.jpg", 
             caption=support_text
         ),
         reply_markup=InlineKeyboardMarkup(custom_support_buttons)
@@ -112,12 +112,12 @@ async def support_page_cb(client, CallbackQuery, _):
 @app.on_callback_query(filters.regex("gib_source"))
 async def gib_repo_callback(_, callback_query):
     try:
-        image_url = "https://files.catbox.moe/10zwqs.jpg"
+        image_url = "https://files.catbox.moe/wn3ool.jpg"
         
         await callback_query.edit_message_media(
             media=InputMediaPhoto(
                 media=image_url, 
-                caption="REPO = ||ᴘʜᴇʟᴀ ᴅᴇᴠɪʟ ᴋᴏ ᴘᴀᴘᴀ ʙᴏʟ ᴄʜᴀʟ ʙᴏʟ😎||"
+                caption="REPO = ||ᴘʜᴇʟᴀ ᴊᴀɴɪ ᴋᴏ ᴘᴀᴘᴀ ʙᴏʟ ᴄʜᴀʟ ʙᴏʟ😎||"
             ),
             reply_markup=InlineKeyboardMarkup(
                 [
