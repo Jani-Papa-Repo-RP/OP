@@ -18,7 +18,7 @@ from PritiMusic.utils.decorators import AdminRightsCheck
 from config import BANNED_USERS
 
 
-PHOTO_URL = "https://files.catbox.moe/wktt8l.jpg"
+PHOTO_URL = "https://files.catbox.moe/wn3ool.jpg"
 
 
 def get_panel(chat_id, enabled):
@@ -33,7 +33,7 @@ def get_panel(chat_id, enabled):
 {status}
 
 ━━━━━━━━━━━━━━━
-⚡ 𝐏ᴏᴡᴇʀᴇᴅ ʙʏ ➛ 𝐊ᴀᴠʏᴀ𝐁ᴏᴛ𝐬
+⚡ 𝐏ᴏᴡᴇʀᴇᴅ ʙʏ ➛ 𝗝𝗮𝗻𝗶 𝗕𝗼𝘁𝘀
 """
 
     buttons = InlineKeyboardMarkup(
@@ -57,11 +57,11 @@ def get_panel(chat_id, enabled):
             [
                 InlineKeyboardButton(
                     "⚡ 𝐔ᴘᴅᴀᴛᴇs",
-                    url="https://t.me/KavyaBots",
+                    url="https://t.me/Jani_Ki_Jaanu",
                 ),
                 InlineKeyboardButton(
                     "👑 𝐎ᴡɴᴇʀ",
-                    url="https://t.me/ll_Alexx_lll",
+                    url="https://t.me/Jani_Sanatani_Power",
                 ),
             ],
         ]
