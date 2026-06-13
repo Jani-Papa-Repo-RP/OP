@@ -29,6 +29,10 @@ WORKER_FALLBACK_API_URL = getenv(
 WORKER_FALLBACK_API_KEY = getenv("WORKER_FALLBACK_API_KEY", None)
 
 
+
+# ✅ JioSaavn Working API Added Here
+JIOSAAVN_API = getenv("JIOSAAVN_API", "https://saavn.me/search/songs?query=")
+
 DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 17000))
 
 LOGGER_ID = int(getenv("LOGGER_ID", "0"))
