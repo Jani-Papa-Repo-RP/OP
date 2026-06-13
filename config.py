@@ -50,9 +50,9 @@ UPSTREAM_REPO = getenv(
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "main")
 GIT_TOKEN = getenv("GIT_TOKEN", "")
 
-SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/KavyaBots")
-SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/+2r69IqsG2GJmMDM1")
-GITHUB = getenv("GITHUB", "https://github.com/TEAM-ISTKHAR")
+SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/Jani_Ki_Jaanu")
+SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/+xnUCDYVIAONlMzNl")
+GITHUB = getenv("GITHUB", "https://t.me/Jani_Sanatani_Power")
 
 AUTO_LEAVING_ASSISTANT = getenv("AUTO_LEAVING_ASSISTANT", "False")
 AUTO_LEAVE_ASSISTANT_TIME = int(getenv("ASSISTANT_LEAVE_TIME", "9000"))
@@ -79,10 +79,10 @@ votemode = {}
 autoclean = []
 confirmer = {}
 
-START_IMG_URL = getenv("START_IMG_URL", "https://files.catbox.moe/n22tbs.jpg").split()
-START_IMG_URL = getenv("START_IMG_URL", "https://files.catbox.moe/nklcvg.jpg").split()
-HELP_IMG_URL = getenv("HELP_IMG_URL", "https://files.catbox.moe/dk92ep.jpg").split()
-PING_IMG_URL = getenv("PING_IMG_URL", "https://files.catbox.moe/wktt8l.jpg").split()
+START_IMG_URL = getenv("START_IMG_URL", "https://files.catbox.moe/wn3ool.jpg").split()
+START_IMG_URL = getenv("START_IMG_URL", "https://files.catbox.moe/wn3ool.jpg").split()
+HELP_IMG_URL = getenv("HELP_IMG_URL", "https://files.catbox.moe/wn3ool.jpg").split()
+PING_IMG_URL = getenv("PING_IMG_URL", "https://files.catbox.moe/wn3ool.jpg").split()
 
 PLAYLIST_IMG_URL = getenv("PLAYLIST_IMG_URL", "https://files.catbox.moe/5qrx1b.jpg").split()
 STATS_IMG_URL = getenv("STATS_IMG_URL", "https://files.catbox.moe/6k3x66.jpg")
