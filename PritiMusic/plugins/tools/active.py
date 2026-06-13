@@ -1,6 +1,6 @@
 """
 Active Chats Plugin for PritiMusic
-🤞 𝐏ᴏᴡєʀєᴅ 𝐁ʏ ➛ BETA BOTS.🙂❤️
+🤞 𝐏ᴏᴡєʀєᴅ 𝐁ʏ ➛ 𝗝𝗮𝗻𝗶 𝗕𝗼𝘁𝘀.🙂❤️
 """
 
 from pyrogram import filters
@@ -15,7 +15,7 @@ from PritiMusic.utils.database import (
 )
 from PritiMusic.utils.database.clonedb import get_served_chats_clone, clonebotdb
 
-POWERED_BY = "🤞 **𝐏ᴏᴡєʀєᴅ 𝐁ʏ ➛ BETA BOTS.🙂❤️**"
+POWERED_BY = "🤞 **𝐏ᴏᴡєʀєᴅ 𝐁ʏ ➛ 𝗝𝗮𝗻𝗶 𝗕𝗼𝘁𝘀.🙂❤️**"
 
 # --- HELPER ---
 async def get_chat_link(chat_id: int) -> str:
