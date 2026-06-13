@@ -136,7 +136,7 @@ async def get_thumb(videoid, user_id, user_name):
 
         # Branding
         draw_text_with_glow(draw, (80, 975), "@Jani_Ki_Jaanu", br, (132, 224, 240), (0, 255, 255, 100))
-        draw_text_with_glow(draw, (1480, 975), "@Jani_Sanatani_Power", br, (255, 60, 160), (255, 0, 170, 100))
+        draw_text_with_glow(draw, (1480, 975), "ᴊᴀɴɪ ʙᴏᴛꜱ", br, (255, 60, 160), (255, 0, 170, 100))
 
         background.convert("RGB").save(final_path, "PNG")
         return final_path
