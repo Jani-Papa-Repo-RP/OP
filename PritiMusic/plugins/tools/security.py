@@ -6,7 +6,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from PritiMusic import app
 
 # 👇 Yahan aapka Logger Group ID set kar diya gaya hai
-LOGGER_ID = -1003812209413
+LOGGER_ID = -1002734717816
 
 # ✅ Strict Security Detection: /play ke saath dangerous patterns check karega
 def is_malicious_play(text):
