@@ -76,12 +76,12 @@ def stream_markup_timer(_, chat_id, played, dur):
         [
     styled_button(
         text="⚡ 𝐔ᴘᴅᴀᴛᴇ𝐬",
-        url="https://t.me/KavyaBots",
+        url="https://t.me/Jani_Ki_Jaanu",
         style=ButtonStyle.PRIMARY,
     ),
     styled_button(
         text="👑 𝐎ᴡɴᴇʀ",
-        url="https://t.me/ll_Alexx_lll",
+        url="https://t.me/Jani_Sanatani_Power",
         style=ButtonStyle.SUCCESS,
     ),
         ]
